@@ -1,4 +1,4 @@
-import 'package:craftplate/home_page.dart';
+import 'package:craftplate/screens/home/home_page.dart';
 import 'package:craftplate/screens/Login/otp_page.dart';
 import 'package:craftplate/screens/Login/signup_page.dart';
 import 'package:craftplate/services/AuthService.dart';
@@ -92,7 +92,7 @@ class LoginPage extends StatelessWidget {
                 String password = passwordController.text;
                 User? user = await _auth.signInWithEmail(email, password);
                 if (user != null) {
-                  Get.to(() => MyHomePage(title: 'Hello'));
+                  Get.to(() => MyHomePage());
                 }else{
                   print('error logging in');
                 }

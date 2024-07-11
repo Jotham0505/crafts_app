@@ -1,4 +1,4 @@
-import 'package:craftplate/home_page.dart';
+import 'package:craftplate/screens/home/home_page.dart';
 import 'package:craftplate/screens/Login/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
