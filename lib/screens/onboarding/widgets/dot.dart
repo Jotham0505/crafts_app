@@ -12,7 +12,7 @@ class OnBoardingDotNavigator extends StatelessWidget {
     final controller = Get.put(onBoardingController());
     return Positioned(
       left: 135,
-      bottom: 180,
+      bottom: 230,
       child: SmoothPageIndicator(
         controller: controller.pageController,
         onDotClicked: controller.dotNavigationClick,

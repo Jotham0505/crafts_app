@@ -11,7 +11,7 @@ class OnBoardingNextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(onBoardingController());
     return Positioned(
-      bottom: 100,
+      bottom: 140,
       right: 120,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(

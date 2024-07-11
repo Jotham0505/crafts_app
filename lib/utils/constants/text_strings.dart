@@ -13,12 +13,12 @@ class TTexts {
 
   // -- OnBoarding Texts
   static const String onBoardingTitle1 = "Create Your Own Plate";
-  static const String onBoardingTitle2 = "Select Payment Method";
-  static const String onBoardingTitle3 = "Deliver at your door step";
+  static const String onBoardingTitle2 = "Exquisite Catering";
+  static const String onBoardingTitle3 = "Personal Order Executive";
 
-  static const String onBoardingSubTitle1 = "Welcome to a World of Limitless Choices - Your Perfect Product Awaits!";
-  static const String onBoardingSubTitle2 = "For Seamless Transactions, Choose Your Payment Path - Your Convenience, Our Priority!";
-  static const String onBoardingSubTitle3 = "From Our Doorstep to Yours - Swift, Secure, and Contactless Delivery!";
+  static const String onBoardingSubTitle1 = "Create unforgettable memories with our unique feature to curate your favorite cuisines and food, tailored to your special occasion.";
+  static const String onBoardingSubTitle2 = "Experience culinary artistry like never before with our innovative and exquisite cuisine creations";
+  static const String onBoardingSubTitle3 = "Embark on a personalized culinary journey with our dedicated one-to-one customer support, ensuring a seamless and satisfying experience every step of the way.";
 
 
   // -- Authentication Forms

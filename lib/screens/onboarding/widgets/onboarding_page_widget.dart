@@ -11,17 +11,22 @@ class OnBoardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(TSizes.defaultSpace),
+      padding: const EdgeInsets.only(top: 130),
       child: Column(
         children: [
           Image(
-            width: THelperFunctions.screenWidth() * 0.8,
-            height: THelperFunctions.screenHeight() * 0.6,
+            width: THelperFunctions.screenWidth() * 0.7,
+            height: THelperFunctions.screenHeight() * 0.3,
             image: AssetImage(image),
           ),
           Text(
             title,
-            style: Theme.of(context).textTheme.headlineMedium,
+            style: TextStyle(
+              fontFamily: 'Lexend',
+              fontWeight: FontWeight.w500,
+              fontSize: 25,
+              color: Color(0xFF030303)
+            ),
             textAlign: TextAlign.center,
           ),
           SizedBox(
@@ -29,7 +34,12 @@ class OnBoardingPage extends StatelessWidget {
           ),
           Text(
             subTiile,
-            style: Theme.of(context).textTheme.bodyMedium,
+            style: TextStyle(
+              fontFamily: 'Lexend',
+              fontWeight: FontWeight.w300,
+              fontSize: 19,
+              color: Color(0xFF7B7B7B)
+            ),
             textAlign: TextAlign.center,
           ),
         ],

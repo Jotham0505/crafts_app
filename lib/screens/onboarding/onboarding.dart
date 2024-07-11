@@ -41,9 +41,6 @@ class OnBoardingScreen extends StatelessWidget {
           
           OnBoardingDotNavigator(),// skip button 
 
-          SizedBox(
-            height: 40,
-          ),
           OnBoardingNextButton(), // next button 
           
            // navigator slider

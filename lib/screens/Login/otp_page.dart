@@ -1,4 +1,5 @@
-import 'package:craftplate/screens/Login/nameEmail_page.dart';
+import 'package:craftplate/home_page.dart';
+import 'package:craftplate/screens/Login/signup_page.dart';
 import 'package:craftplate/widgets_common/otp_textfield_widget.dart';
 import 'package:craftplate/widgets_common/textButton_widget.dart';
 import 'package:flutter/material.dart';
@@ -82,7 +83,7 @@ class OTPPage extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(right: 20),
-            child: TextButtonWidget(onpressed: () => Get.to(() => nameAndEmailPage()), title: 'Submit'),
+            child: TextButtonWidget(onpressed: () => Get.to(() => MyHomePage(title: 'Hello',)), title: 'Submit'),
           ),
           SizedBox(
             height: 10,

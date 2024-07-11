@@ -1,4 +1,5 @@
 import 'package:craftplate/screens/Login/otp_page.dart';
+import 'package:craftplate/screens/Login/signup_page.dart';
 import 'package:craftplate/utils/constants/colors.dart';
 import 'package:craftplate/widgets_common/textButton_widget.dart';
 import 'package:craftplate/widgets_common/text_field_widget.dart';
@@ -70,15 +71,64 @@ class LoginPage extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            textFormFieldWidget(labelText: '+91   Enter Phone number'), // widget for textfield
+            textFormFieldWidget(labelText: 'Enter Email', isobscure: false,), // widget for textfield
              SizedBox(
               height: 20,
             ),
-            TextButtonWidget(onpressed: () => Get.to(() => OTPPage()), title: 'Continue',), // widget for button
+            textFormFieldWidget(labelText: 'Enter Password', isobscure: true,),
+            SizedBox(
+              height: 20,
+            ),
+            TextButtonWidget(onpressed: () {}, title: 'Log in',), // widget for button
+
+            SizedBox(height: 10,),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                    'Create an acoount',
+                    style: TextStyle(
+                      fontFamily: 'Lexend',
+                      fontWeight: FontWeight.w500,
+                      fontSize: 12,
+                      color: Colors.grey
+                    ),
+                  ),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  GestureDetector(
+                    onTap: () => Get.to(() => nameAndEmailPage()),
+                    child: Text(
+                      'Sign up',
+                      style: TextStyle(
+                        fontFamily: 'Lexend',
+                        fontWeight: FontWeight.w500,
+                        fontSize: 12,
+                        color: Color(0xFF6318AF)
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 50,),
+                  GestureDetector(
+                    onTap: () => Get.to(() => OTPPage()),
+                    child: Text(
+                      'Forgot Password  ',
+                      style: TextStyle(
+                        fontFamily: 'Lexend',
+                        fontWeight: FontWeight.w500,
+                        fontSize: 12,
+                        color: Color(0xFF6318AF)
+                      ),
+                    ),
+                  ),
+              ],
+            ),
 
             Padding(
               padding: const EdgeInsets.only(
-                top: 280
+                top: 200
               ),
               child: Column(
                 children: [
