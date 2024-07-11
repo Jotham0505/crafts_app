@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
-
 class textFormFieldWidget extends StatelessWidget {
   const textFormFieldWidget({
-    super.key, required this.labelText, required this.isobscure,
+    super.key,
+    required this.labelText,
+    required this.isobscure,
+    required this.controller,
   });
 
   final String labelText;
   final bool isobscure;
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +20,7 @@ class textFormFieldWidget extends StatelessWidget {
         height: 44,
         width: 300,
         child: TextFormField(
+          controller: controller,
           obscureText: isobscure,
           decoration: InputDecoration(
             labelText: labelText,
@@ -24,7 +28,7 @@ class textFormFieldWidget extends StatelessWidget {
               fontFamily: 'Lexend',
               fontSize: 14,
               fontWeight: FontWeight.w400,
-              color: Colors.grey
+              color: Colors.grey,
             ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.0),

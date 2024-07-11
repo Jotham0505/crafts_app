@@ -1,13 +1,20 @@
+import 'package:craftplate/home_page.dart';
 import 'package:craftplate/screens/Login/otp_page.dart';
 import 'package:craftplate/screens/Login/signup_page.dart';
+import 'package:craftplate/services/AuthService.dart';
 import 'package:craftplate/utils/constants/colors.dart';
 import 'package:craftplate/widgets_common/textButton_widget.dart';
 import 'package:craftplate/widgets_common/text_field_widget.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final AuthService _auth = AuthService();
+  
+  LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -71,15 +78,27 @@ class LoginPage extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            textFormFieldWidget(labelText: 'Enter Email', isobscure: false,), // widget for textfield
+            textFormFieldWidget(labelText: 'Enter Email', isobscure: false, controller: emailController,), // widget for textfield
              SizedBox(
               height: 20,
             ),
-            textFormFieldWidget(labelText: 'Enter Password', isobscure: true,),
+            textFormFieldWidget(labelText: 'Enter Password', isobscure: true, controller: passwordController,),
             SizedBox(
               height: 20,
             ),
-            TextButtonWidget(onpressed: () {}, title: 'Log in',), // widget for button
+            TextButtonWidget(
+              onpressed: () async{
+                String email = emailController.text;
+                String password = passwordController.text;
+                User? user = await _auth.signInWithEmail(email, password);
+                if (user != null) {
+                  Get.to(() => MyHomePage(title: 'Hello'));
+                }else{
+                  print('error logging in');
+                }
+              },
+              title: 'Log in',
+            ), // widget for button
 
             SizedBox(height: 10,),
 

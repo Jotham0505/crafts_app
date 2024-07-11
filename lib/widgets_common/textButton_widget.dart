@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 class TextButtonWidget extends StatelessWidget {
-
   const TextButtonWidget({
-    super.key, required this.onpressed, required this.title,
+    super.key,
+    required this.onpressed,
+    required this.title,
   });
 
   final VoidCallback onpressed;
@@ -21,9 +22,9 @@ class TextButtonWidget extends StatelessWidget {
             backgroundColor: MaterialStateProperty.all<Color>(Color(0xFF6318AF)),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8)
-              )
-            )
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
           ),
           onPressed: onpressed,
           child: Text(
@@ -32,9 +33,9 @@ class TextButtonWidget extends StatelessWidget {
               fontFamily: 'Lexend',
               fontSize: 14,
               fontWeight: FontWeight.w400,
-              color: Colors.white
+              color: Colors.white,
             ),
-          ) 
+          ),
         ),
       ),
     );

@@ -1,11 +1,17 @@
+import 'package:craftplate/services/AuthService.dart';
 import 'package:craftplate/widgets_common/textButton_widget.dart';
 import 'package:craftplate/widgets_common/text_field_widget.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 class nameAndEmailPage extends StatelessWidget {
-  const nameAndEmailPage({super.key});
+  nameAndEmailPage({super.key});
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController fullnameController = TextEditingController();
+  final AuthService _auth = AuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +24,8 @@ class nameAndEmailPage extends StatelessWidget {
               padding: EdgeInsets.only(top: 65),
               child: Row(
                 children: [
-                  IconButton( // icon button backwards
+                  IconButton(
+                    // icon button backwards
                     onPressed: () => Get.back(),
                     icon: Icon(Icons.arrow_back_ios_new_outlined),
                   ),
@@ -28,8 +35,9 @@ class nameAndEmailPage extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            Padding( // title
-              padding: const EdgeInsets.only(left: 28,top: 10),
+            Padding(
+              // title
+              padding: const EdgeInsets.only(left: 28, top: 10),
               child: Text(
                 'Just a step away !',
                 style: TextStyle(
@@ -38,22 +46,52 @@ class nameAndEmailPage extends StatelessWidget {
                     fontSize: 20),
               ),
             ),
-      
+
             SizedBox(
               height: 30,
             ),
-      
-            textFormFieldWidget(labelText: 'Fullname*', isobscure: false,), // textfiled 1
-            SizedBox(height: 20,),
 
-            textFormFieldWidget(labelText: 'Email ID*', isobscure: false,), // textfiled 2
-            SizedBox(height: 20,), 
+            textFormFieldWidget(
+              labelText: 'Fullname*',
+              isobscure: false,
+              controller: fullnameController,
+            ), // textfiled 1
+            SizedBox(
+              height: 20,
+            ),
 
-            textFormFieldWidget(labelText: 'Password*', isobscure: true,), // textfiled 3
-            
-            SizedBox(height: 280,),
+            textFormFieldWidget(
+              labelText: 'Email ID*',
+              isobscure: false,
+              controller: emailController,
+            ), // textfiled 2
+            SizedBox(
+              height: 20,
+            ),
 
-            TextButtonWidget(onpressed: (){}, title: "Create Account") // textbutton 
+            textFormFieldWidget(
+              labelText: 'Password*',
+              isobscure: true,
+              controller: passwordController,
+            ), // textfiled 3
+
+            SizedBox(
+              height: 280,
+            ),
+
+            TextButtonWidget(
+              onpressed: () async{
+                String email = emailController.text;
+                String password = passwordController.text;
+                User? user = await _auth.registerWithEmail(email, password);
+                if (user != null) {
+                  Get.back();
+                }else{
+                  print('error signing up');
+                }
+              },
+              title: "Create Account",
+            ), // textbutton
           ],
         ),
       ),
