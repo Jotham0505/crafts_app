@@ -1,4 +1,5 @@
 import 'package:craftplate/firebase_options.dart';
+import 'package:craftplate/screens/home/home_page.dart';
 import 'package:craftplate/screens/onboarding/onboarding.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: OnBoardingScreen()
+      home: MyHomePage()
     );
   }
 }
