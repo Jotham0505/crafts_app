@@ -42,7 +42,7 @@ class CraftingCard extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 95,left: 31),
+            padding: const EdgeInsets.only(top: 107,left: 31),
             child: Text(
               text,
               style: TextStyle(
