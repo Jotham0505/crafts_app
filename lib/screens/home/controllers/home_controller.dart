@@ -10,4 +10,14 @@ class HomeController extends GetxController {
     carouselCurrentIndex.value = index;
     
   }
+
+  List<String> texts = [
+    "Enjoy your first order, the taste of our delicious food!",
+    "Delicious food \nfor happy life!",
+  ];
+
+   String getCurrentText() {
+    return texts[carouselCurrentIndex.value];
+  }
+
 }

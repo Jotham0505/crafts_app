@@ -27,6 +27,7 @@ class TRoundedImage extends StatelessWidget {
   final BoxFit? fit;
   final BoxBorder? border;
   final double? borderRadius;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -35,22 +36,22 @@ class TRoundedImage extends StatelessWidget {
     return GestureDetector(
       onTap: onpressed,
       child: Container(
-        width: width,
-        height: height,
-        padding: padding,
-        decoration: BoxDecoration(
-          color: backgroundColor,
-          borderRadius: applyImageRadius ? BorderRadius.circular(effectiveBorderRadius) : BorderRadius.zero,
-          border: border,
-        ),
-        child: ClipRRect(
-          borderRadius: applyImageRadius ? BorderRadius.circular(effectiveBorderRadius) : BorderRadius.zero,
-          child: Image(
-            image: isNetworkImage ? NetworkImage(ImageUrl) : AssetImage(ImageUrl) as ImageProvider,
-            fit: fit,
-          ),
+      width: width,
+      height: height,
+      padding: padding,
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        borderRadius: applyImageRadius ? BorderRadius.circular(effectiveBorderRadius) : BorderRadius.zero,
+        border: border,
+      ),
+      child: ClipRRect(
+        borderRadius: applyImageRadius ? BorderRadius.circular(effectiveBorderRadius) : BorderRadius.zero,
+        child: Image(
+          image: isNetworkImage ? NetworkImage(ImageUrl) : AssetImage(ImageUrl) as ImageProvider,
+          fit: fit,
         ),
       ),
+        ),
     );
   }
 }
