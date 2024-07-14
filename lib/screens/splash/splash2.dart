@@ -1,5 +1,8 @@
+import 'package:craftplate/screens/home/home_page.dart';
+import 'package:craftplate/screens/onboarding/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:get/get.dart';
 
 class SecondSplashScreen extends StatefulWidget {
   const SecondSplashScreen({super.key});
@@ -9,6 +12,15 @@ class SecondSplashScreen extends StatefulWidget {
 }
 
 class _SecondSplashScreenState extends State<SecondSplashScreen> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Future.delayed(Duration(seconds: 3), () {
+      Get.to((() => OnBoardingScreen()));
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -15,7 +15,7 @@ class _FirstSplashScreenState extends State<FirstSplashScreen> {
     // TODO: implement initState
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      Future.delayed(Duration(seconds: 100), () {
+      Future.delayed(Duration(seconds: 2), () {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => SecondSplashScreen()),

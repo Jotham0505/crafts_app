@@ -1,5 +1,9 @@
+import 'package:craftplate/screens/Login/login_page.dart';
+import 'package:craftplate/screens/home/home_page.dart';
 import 'package:craftplate/screens/onboarding/controllers/onboarding_controller.dart';
+import 'package:craftplate/screens/onboarding/widgets/circular_button.dart';
 import 'package:craftplate/screens/onboarding/widgets/dot.dart';
+import 'package:craftplate/screens/onboarding/widgets/expandable_button_widget.dart';
 import 'package:craftplate/screens/onboarding/widgets/nextButton.dart';
 import 'package:craftplate/screens/onboarding/widgets/onboarding_page_widget.dart';
 import 'package:craftplate/screens/onboarding/widgets/skip.dart';
@@ -37,15 +41,38 @@ class OnBoardingScreen extends StatelessWidget {
                   subTiile: TTexts.onBoardingSubTitle3),
             ],
           ),
-          OnBoardSkip(), 
+          OnBoardSkip(), // skip button 
           
-          OnBoardingDotNavigator(),// skip button 
-
-          OnBoardingNextButton(), // next button 
+          OnBoardingDotNavigator(), // navigator slider
+ 
+          Obx(() {
+            if (controller.currentPageIndex < 2) {
+              return Positioned(
+                bottom: 150,
+                right: 155,
+                child: CircularButton(
+                  onPressed: () {
+                    controller.pageController.nextPage(
+                      duration: Duration(milliseconds: 300),
+                      curve: Curves.easeInOut,
+                    );
+                  },
+                ),
+              );
+            } else {
+              return Positioned(
+                bottom: 140,
+                right: 95,
+                child: ExpandableButton(
+                isExpanded: controller.currentPageIndex == 2, onPressed: () { Get.to(() => LoginPage()); },
+                ),
+              );
+            }
+          }),
           
-           // navigator slider
         ],
       ),
+      
     );
   }
 }

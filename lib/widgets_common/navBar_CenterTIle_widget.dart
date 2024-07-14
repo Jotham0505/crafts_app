@@ -15,7 +15,7 @@ class CenterFloatingTileWidget extends StatelessWidget {
           border: Border.all(color: Color.fromARGB(255, 250, 193, 22),width: 2)
         ),
         child: CircleAvatar(
-          radius: 28,
+          radius: 25,
           backgroundColor: Color(0xFF6318AF),
           child: Stack(
             children: [

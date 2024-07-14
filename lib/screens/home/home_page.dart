@@ -32,7 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: Container(
-        height: 75,
+        height: 70,
         child: BottomAppBar(
           color: Color(0xFFFFFFFF),
           child: Row(
@@ -229,15 +229,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 scrollDirection: Axis.horizontal,
                 children: [
                   startersAndMainCard(
-                    text: 'Grill Chicken',
+                    text: 'Veg Biriyani',
                     image: 'assets/mains/main3.png',
                   ),
                   startersAndMainCard(
-                    text: 'Veggies Fry',
+                    text: 'Bread and Roll',
                     image: 'assets/mains/main2.png',
                   ),
                   startersAndMainCard(
-                    text: 'Mushroom Fry',
+                    text: 'Rice and curry',
                     image: 'assets/mains/main1.png',
                   ),
                   startersAndMainCard(
