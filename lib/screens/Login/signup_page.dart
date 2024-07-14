@@ -51,7 +51,7 @@ class nameAndEmailPage extends StatelessWidget {
               height: 30,
             ),
 
-            textFormFieldWidget(
+            textFormFieldWidget( // full name
               labelText: 'Fullname*',
               isobscure: false,
               controller: fullnameController,
@@ -60,7 +60,7 @@ class nameAndEmailPage extends StatelessWidget {
               height: 20,
             ),
 
-            textFormFieldWidget(
+            textFormFieldWidget( // email
               labelText: 'Email ID*',
               isobscure: false,
               controller: emailController,
@@ -69,7 +69,7 @@ class nameAndEmailPage extends StatelessWidget {
               height: 20,
             ),
 
-            textFormFieldWidget(
+            textFormFieldWidget( // password
               labelText: 'Password*',
               isobscure: true,
               controller: passwordController,
@@ -79,15 +79,38 @@ class nameAndEmailPage extends StatelessWidget {
               height: 280,
             ),
 
-            TextButtonWidget(
+            TextButtonWidget( // Text Button widget
               onpressed: () async{
                 String email = emailController.text;
                 String password = passwordController.text;
                 User? user = await _auth.registerWithEmail(email, password);
                 if (user != null) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Account successfully created'),
+                      backgroundColor: Color(0xff6318AF),
+                      duration: Duration(seconds: 3),
+                      behavior: SnackBarBehavior.floating,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)
+                      ),
+                      margin: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+                    ),
+                  );
                   Get.back();
                 }else{
-                  print('error signing up');
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Error signing up'),
+                      backgroundColor: Color(0xff6318AF),
+                      duration: Duration(seconds: 3),
+                      behavior: SnackBarBehavior.floating,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)
+                      ),
+                      margin: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+                    ),
+                  );
                 }
               },
               title: "Create Account",

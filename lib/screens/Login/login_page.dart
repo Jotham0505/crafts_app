@@ -78,23 +78,46 @@ class LoginPage extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            textFormFieldWidget(labelText: 'Enter Email', isobscure: false, controller: emailController,), // widget for textfield
+            textFormFieldWidget(labelText: 'Enter Email', isobscure: false, controller: emailController,), // email
              SizedBox(
               height: 20,
             ),
-            textFormFieldWidget(labelText: 'Enter Password', isobscure: true, controller: passwordController,),
+            textFormFieldWidget(labelText: 'Enter Password', isobscure: true, controller: passwordController,), // password
             SizedBox(
               height: 20,
             ),
-            TextButtonWidget(
+            TextButtonWidget( // text button widget for login 
               onpressed: () async{
                 String email = emailController.text;
                 String password = passwordController.text;
                 User? user = await _auth.signInWithEmail(email, password);
                 if (user != null) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Logged in successfully'),
+                      backgroundColor: Color(0xff6318AF),
+                      duration: Duration(seconds: 3),
+                      behavior: SnackBarBehavior.floating,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)
+                      ),
+                      margin: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+                    ),
+                  );
                   Get.to(() => MyHomePage());
                 }else{
-                  print('error logging in');
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Error logging in'),
+                      backgroundColor: Color(0xff6318AF),
+                      duration: Duration(seconds: 3),
+                      behavior: SnackBarBehavior.floating,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)
+                      ),
+                      margin: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+                    ),
+                  );
                 }
               },
               title: 'Log in',
@@ -145,7 +168,7 @@ class LoginPage extends StatelessWidget {
               ],
             ),
 
-            Padding(
+            Padding( // terms and services
               padding: const EdgeInsets.only(
                 top: 200
               ),

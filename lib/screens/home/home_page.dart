@@ -30,324 +30,326 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: Container(
-        height: 70,
-        child: BottomAppBar(
-          color: Color(0xFFFFFFFF),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              buildNavBarItem('assets/utilities/home.png', 'Home', 0),
-              buildNavBarItem('assets/utilities/wishlist.png', 'Wishlist', 1),
-              SizedBox(
-                width: 30,
-              ),
-              buildNavBarItem('assets/utilities/order.png', 'Orders', 2),
-              buildNavBarItem('assets/utilities/profile.png', 'Profile', 3),
-            ],
-          ),
-        ),
-      ),
-      floatingActionButton:
-          CenterFloatingTileWidget(), // Center floating tile of the navigation bar
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-
-      body: 
-      SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // header
-            Padding(
-              padding: EdgeInsets.only(top: 60, left: 15),
-              child: Text(
-                'Hi, Monica!',
-                style: TextStyle(
-                    color: Color(0xFF6318AF),
-                    fontFamily: 'Lexend',
-                    fontSize: 26),
-              ),
-            ),
-            HeadingText(), // sub title heading widget
-
-            // carousel slider
-
-            TPromoSlider(
-              Banners: [
-                Container(
-                  width: double.infinity,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: TRoundedImage(
-                      ImageUrl: 'assets/slider/ban2.png',
-                      applyImageRadius: true,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                Container(
-                  width: double.infinity,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: TRoundedImage(
-                      ImageUrl: 'assets/slider/ban1.png',
-                      applyImageRadius: true,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-              ], padding: EdgeInsets.only(left: 13,top: 20),
-            ),
-            
-
-            TSearchContainer(
-                text: 'Search food or events',
-                searchbarSize: 10), // Search bar Container
-
-            SizedBox(
-              height: 25,
-            ),
-
-            Padding(
-              padding: const EdgeInsets.only(left: 15),
-              child: Text(
-                'Start Crafting',
-                style: TextStyle(
-                    color: Color(0xFF6318AF),
-                    fontFamily: 'Lexend',
-                    fontSize: 25),
-              ),
-            ),
-
-            SizedBox(
-              height: 15,
-            ),
-
-            Row(
+    return Expanded(
+      child: Scaffold(
+        bottomNavigationBar: Container(
+          height: 70,
+          child: BottomAppBar(
+            color: Color(0xFFFFFFFF),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                CraftingCard(
-                  // Crafting Reusable card
-                  image: 'assets/utilities/craft1.png',
-                  text: 'Default Platters',
-                ),
+                buildNavBarItem('assets/utilities/home.png', 'Home', 0),
+                buildNavBarItem('assets/utilities/wishlist.png', 'Wishlist', 1),
                 SizedBox(
-                  width: 3,
+                  width: 30,
                 ),
-                CraftingCard(
-                  image: 'assets/utilities/craft2.png',
-                  text: 'Craft Your Own',
-                ),
+                buildNavBarItem('assets/utilities/order.png', 'Orders', 2),
+                buildNavBarItem('assets/utilities/profile.png', 'Profile', 3),
               ],
             ),
-
-            SizedBox(
-              height: 40,
-            ),
-
-            Container(
-              // Menu reusable card list
-              height: 200,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  menuReusableCard(),
-                  menuReusableCard(),
-                  menuReusableCard(),
-                  menuReusableCard(),
-                ],
+          ),
+        ),
+        floatingActionButton:
+            CenterFloatingTileWidget(), // Center floating tile of the navigation bar
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    
+        body: 
+        SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // header
+              Padding(
+                padding: EdgeInsets.only(top: 60, left: 15),
+                child: Text(
+                  'Hi, Monica!',
+                  style: TextStyle(
+                      color: Color(0xFF6318AF),
+                      fontFamily: 'Lexend',
+                      fontSize: 26),
+                ),
               ),
-            ),
-
-            segmentHeadingText(
-              text: 'Top Categories',
-              subText: 'see more',
-              padding: EdgeInsets.only(right: 90),
-            ), // Heading text widget
-
-            CategoriesSlider(), // Top Categories sliding widget
-
-            SizedBox(
-              height: 17,
-            ),
-
-            segmentHeadingText(
-              text: 'Starters',
-              subText: 'see more',
-              padding: EdgeInsets.only(right: 140),
-            ), // heading text widget
-
-            SizedBox(
-              height: 15,
-            ),
-
-            Container(
-              height: 170,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  startersAndMainCard(
-                    text: 'Grill Chicken',
-                    image: 'assets/starters/s1.png',
+              HeadingText(), // sub title heading widget
+    
+              // carousel slider
+    
+              TPromoSlider(
+                Banners: [
+                  Container(
+                    width: double.infinity,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: TRoundedImage(
+                        ImageUrl: 'assets/slider/ban2.png',
+                        applyImageRadius: true,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
-                  startersAndMainCard(
-                    text: 'Veggies Fry',
-                    image: 'assets/starters/s3.png',
+                  Container(
+                    width: double.infinity,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: TRoundedImage(
+                        ImageUrl: 'assets/slider/ban1.png',
+                        applyImageRadius: true,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
-                  startersAndMainCard(
-                    text: 'Mushroom Fry',
-                    image: 'assets/starters/s1.png',
-                  ),
-                  startersAndMainCard(
-                    text: 'Mushroom Fry',
-                    image: 'assets/starters/s1.png',
-                  ),
-                  startersAndMainCard(
-                    text: 'Mushroom Fry',
-                    image: 'assets/starters/s1.png',
-                  ),
-                  startersAndMainCard(
-                    text: 'Grill Chicken',
-                    image: 'assets/starters/s1.png',
-                  ),
-                  startersAndMainCard(
-                    text: 'Grill Chicken',
-                    image: 'assets/starters/s1.png',
-                  ),
-                ],
+                ], padding: EdgeInsets.only(left: 13,top: 20),
               ),
-            ),
-
-            segmentHeadingText(
-              text: 'Main Course',
-              subText: 'more main courses',
-              padding: EdgeInsets.only(right: 70, bottom: 10),
-            ),
-            Container(
-              height: 170,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
+              
+    
+              TSearchContainer(
+                  text: 'Search food or events',
+                  searchbarSize: 10), // Search bar Container
+    
+              SizedBox(
+                height: 25,
+              ),
+    
+              Padding(
+                padding: const EdgeInsets.only(left: 15),
+                child: Text(
+                  'Start Crafting',
+                  style: TextStyle(
+                      color: Color(0xFF6318AF),
+                      fontFamily: 'Lexend',
+                      fontSize: 25),
+                ),
+              ),
+    
+              SizedBox(
+                height: 15,
+              ),
+    
+              Row(
                 children: [
-                  startersAndMainCard(
-                    text: 'Veg Biriyani',
-                    image: 'assets/mains/main3.png',
+                  CraftingCard(
+                    // Crafting Reusable card
+                    image: 'assets/utilities/craft1.png',
+                    text: 'Default Platters',
                   ),
-                  startersAndMainCard(
-                    text: 'Bread and Roll',
-                    image: 'assets/mains/main2.png',
+                  SizedBox(
+                    width: 3,
                   ),
-                  startersAndMainCard(
-                    text: 'Rice and curry',
-                    image: 'assets/mains/main1.png',
-                  ),
-                  startersAndMainCard(
-                    text: 'Mushroom Fry',
-                    image: 'assets/starters/s1.png',
-                  ),
-                  startersAndMainCard(
-                    text: 'Mushroom Fry',
-                    image: 'assets/starters/s1.png',
-                  ),
-                  startersAndMainCard(
-                    text: 'Grill Chicken',
-                    image: 'assets/starters/s1.png',
-                  ),
-                  startersAndMainCard(
-                    text: 'Grill Chicken',
-                    image: 'assets/starters/s1.png',
+                  CraftingCard(
+                    image: 'assets/utilities/craft2.png',
+                    text: 'Craft Your Own',
                   ),
                 ],
               ),
-            ),
-
-            Padding(
-              padding: const EdgeInsets.only(left: 15),
-              child: Text(
-                'Services',
-                style: TextStyle(
+    
+              SizedBox(
+                height: 40,
+              ),
+    
+              Container(
+                // Menu reusable card list
+                height: 200,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    menuReusableCard(),
+                    menuReusableCard(),
+                    menuReusableCard(),
+                    menuReusableCard(),
+                  ],
+                ),
+              ),
+    
+              segmentHeadingText(
+                text: 'Top Categories',
+                subText: 'see more',
+                padding: EdgeInsets.only(right: 90),
+              ), // Heading text widget
+    
+              CategoriesSlider(), // Top Categories sliding widget
+    
+              SizedBox(
+                height: 17,
+              ),
+    
+              segmentHeadingText(
+                text: 'Starters',
+                subText: 'see more',
+                padding: EdgeInsets.only(right: 140),
+              ), // heading text widget
+    
+              SizedBox(
+                height: 15,
+              ),
+    
+              Container(
+                height: 170,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    startersAndMainCard(
+                      text: 'Grill Chicken',
+                      image: 'assets/starters/s1.png',
+                    ),
+                    startersAndMainCard(
+                      text: 'Veggies Fry',
+                      image: 'assets/starters/s3.png',
+                    ),
+                    startersAndMainCard(
+                      text: 'Mushroom Fry',
+                      image: 'assets/starters/s1.png',
+                    ),
+                    startersAndMainCard(
+                      text: 'Mushroom Fry',
+                      image: 'assets/starters/s1.png',
+                    ),
+                    startersAndMainCard(
+                      text: 'Mushroom Fry',
+                      image: 'assets/starters/s1.png',
+                    ),
+                    startersAndMainCard(
+                      text: 'Grill Chicken',
+                      image: 'assets/starters/s1.png',
+                    ),
+                    startersAndMainCard(
+                      text: 'Grill Chicken',
+                      image: 'assets/starters/s1.png',
+                    ),
+                  ],
+                ),
+              ),
+    
+              segmentHeadingText(
+                text: 'Main Course',
+                subText: 'more main courses',
+                padding: EdgeInsets.only(right: 70, bottom: 10),
+              ),
+              Container(
+                height: 170,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    startersAndMainCard(
+                      text: 'Veg Biriyani',
+                      image: 'assets/mains/main3.png',
+                    ),
+                    startersAndMainCard(
+                      text: 'Bread and Roll',
+                      image: 'assets/mains/main2.png',
+                    ),
+                    startersAndMainCard(
+                      text: 'Rice and curry',
+                      image: 'assets/mains/main1.png',
+                    ),
+                    startersAndMainCard(
+                      text: 'Mushroom Fry',
+                      image: 'assets/starters/s1.png',
+                    ),
+                    startersAndMainCard(
+                      text: 'Mushroom Fry',
+                      image: 'assets/starters/s1.png',
+                    ),
+                    startersAndMainCard(
+                      text: 'Grill Chicken',
+                      image: 'assets/starters/s1.png',
+                    ),
+                    startersAndMainCard(
+                      text: 'Grill Chicken',
+                      image: 'assets/starters/s1.png',
+                    ),
+                  ],
+                ),
+              ),
+    
+              Padding(
+                padding: const EdgeInsets.only(left: 15),
+                child: Text(
+                  'Services',
+                  style: TextStyle(
+                      fontFamily: 'Lexend',
+                      fontSize: 22,
+                      fontWeight: FontWeight.w500),
+                ),
+              ),
+    
+              SizedBox(
+                height: 15,
+              ),
+    
+              Container(
+                // service reusable card
+                height: 310,
+                child: ListView(scrollDirection: Axis.horizontal, children: [
+                  serviceCard(
+                    image: 'assets/utilities/service1.png',
+                    icon: 'assets/utilities/sign1.png',
+                    icontext: 'Signature',
+                    text1: 'High Quality Disposable Cutlery',
+                    text2: 'Elegant Decorations & Table Settings',
+                    text3: 'Served by Waitstaff',
+                    text4: 'Best for Weddings, Corporate Events ',
+                  ),
+                  serviceCard(
+                    image: 'assets/utilities/service2.png',
+                    icon: 'assets/utilities/sign2.png',
+                    icontext: 'Value',
+                    text1: 'Disposable Cutlery',
+                    text2: 'Basic Decorations & Table Settings',
+                    text3: 'Served in Buffet Style',
+                    text4: 'Best for Birthdays, Family Gathering etc',
+                  ),
+                  serviceCard(
+                    image: 'assets/utilities/service3.png',
+                    icon: 'assets/utilities/sign3.png',
+                    icontext: 'Luxury',
+                    text1: 'High End Reusable Cutlery',
+                    text2: 'Elegant Decorations & Table Settings',
+                    text3: 'Served by Professional Waitstaff',
+                    text4: 'Best for Celebrity Parties, Political Events',
+                  ),
+                ]),
+              ),
+              
+              SizedBox(
+                height: 25,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Text(
+                  'How does it work ?',
+                  style: TextStyle(
                     fontFamily: 'Lexend',
-                    fontSize: 22,
-                    fontWeight: FontWeight.w500),
-              ),
-            ),
-
-            SizedBox(
-              height: 15,
-            ),
-
-            Container(
-              // service reusable card
-              height: 310,
-              child: ListView(scrollDirection: Axis.horizontal, children: [
-                serviceCard(
-                  image: 'assets/utilities/service1.png',
-                  icon: 'assets/utilities/sign1.png',
-                  icontext: 'Signature',
-                  text1: 'High Quality Disposable Cutlery',
-                  text2: 'Elegant Decorations & Table Settings',
-                  text3: 'Served by Waitstaff',
-                  text4: 'Best for Weddings, Corporate Events ',
-                ),
-                serviceCard(
-                  image: 'assets/utilities/service2.png',
-                  icon: 'assets/utilities/sign2.png',
-                  icontext: 'Value',
-                  text1: 'Disposable Cutlery',
-                  text2: 'Basic Decorations & Table Settings',
-                  text3: 'Served in Buffet Style',
-                  text4: 'Best for Birthdays, Family Gathering etc',
-                ),
-                serviceCard(
-                  image: 'assets/utilities/service3.png',
-                  icon: 'assets/utilities/sign3.png',
-                  icontext: 'Luxury',
-                  text1: 'High End Reusable Cutlery',
-                  text2: 'Elegant Decorations & Table Settings',
-                  text3: 'Served by Professional Waitstaff',
-                  text4: 'Best for Celebrity Parties, Political Events',
-                ),
-              ]),
-            ),
-            
-            SizedBox(
-              height: 25,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 20),
-              child: Text(
-                'How does it work ?',
-                style: TextStyle(
-                  fontFamily: 'Lexend',
-                  fontSize: 20
+                    fontSize: 20
+                  ),
                 ),
               ),
-            ),
-
-
-            SizedBox(height: 10,),
-
-
-            workContainer(), // How it works container
-
-            SizedBox(height: 10,),
-            
-            Padding(
-              padding: const EdgeInsets.only(left: 20),
-              child: Text(
-                'Delicious food with professional service!',
-                style: TextStyle(
-                  fontFamily: 'Lexend',
-                  fontSize: 28,
-                  fontWeight: FontWeight.w400
+    
+    
+              SizedBox(height: 10,),
+    
+    
+              workContainer(), // How it works container
+    
+              SizedBox(height: 10,),
+              
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Text(
+                  'Delicious food with professional service!',
+                  style: TextStyle(
+                    fontFamily: 'Lexend',
+                    fontSize: 28,
+                    fontWeight: FontWeight.w400
+                  ),
                 ),
               ),
-            ),
-
-            SizedBox(
-              height: 40  ,
-            )
-
-          ],
+    
+              SizedBox(
+                height: 40  ,
+              )
+    
+            ],
+          ),
         ),
       ),
     );
